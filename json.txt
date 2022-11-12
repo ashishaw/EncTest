@@ -1,0 +1,12 @@
+{
+    "NAME": "Test Encryptions",
+    "DESCRIPTION": "Make sure that the encryption is working",
+    "AUTHOR": "Ashish Waingankar",
+    "AUTHOR_EMAIL": "waingankar.ashish@gmail.com",
+    "AUTHOR_URL": "https://github.com/ashishaw",
+    "VERSION": "1.0",
+    "LICENSE": "ISC",
+    "KEYWORDS": "TEST",
+    "COMPATIBILITY": "1.0",
+    "INCLUDE": ["java", "php", "python", "ruby", ],
+}

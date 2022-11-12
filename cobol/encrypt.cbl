@@ -1,0 +1,26 @@
+IDENTIFICATION DIVISION.
+       PROGRAM-ID. ENCRYPT.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01 WS-KEY PIC X(16) VALUE "A1B2C3D4E5F6H7I8".
+       01 WS-DATA PIC X(1000) VALUE "json.txt".
+       01 WS-ENCRYPTED PIC X(1000).
+       PROCEDURE DIVISION.
+           OPEN INPUT WS-DATA.
+           READ WS-DATA AT END MOVE 'Y' TO WS-EOF.
+           IF WS-EOF = 'Y' GOBACK.
+               READ WS-DATA.
+               CLOSE WS-DATA.
+           CALL "ENCRYPT" USING WS-KEY WS-DATA WS-ENCRYPTED.
+           DISPLAY WS-ENCRYPTED.
+       STOP RUN.
+
+       ENCRYPT.
+           MOVE WS-KEY TO WS-KEY-ENCRYPTED.
+           MOVE WS-DATA TO WS-DATA-ENCRYPTED.
+           MOVE WS-ENCRYPTED TO WS-ENCRYPTED-ENCRYPTED.
+       RETURN.
+
+* Run
+* cobc -x -free -o encrypt encrypt.cbl
+* ./encrypt
